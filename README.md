@@ -632,7 +632,7 @@ B.Tech — Computer Science and Engineering (AI & ML)
         </tr>
         <tr>
             <td>Live Demo</td>
-            <td>YOUR_RENDER_LINK_HERE</td>
+            <td>https://heart-disease-predection-4.onrender.com</td>
         </tr>
         <tr>
             <td>LinkedIn</td>
