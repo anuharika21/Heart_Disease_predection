@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Heart Disease Prediction</title>
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#dbeafe,#fce7f3);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
+.container{
+    width:600px;
+    margin:40px 20px;
+    padding:35px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+.heart{
+    width:80px;
+    height:80px;
+    margin:0 auto 15px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ef4444,#db2777);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    box-shadow:0 8px 20px rgba(239,68,68,.35);
+}
+h1{
+    text-align:center;
+    color:#1e293b;
+    margin:5px 0 8px;
+    font-size:30px;
+}
+.subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:30px;
+    font-size:14px;
+}
+.form-group{
+    margin-bottom:18px;
+}
+label{
+    display:block;
+    margin-bottom:7px;
+    font-size:14px;
+    font-weight:bold;
+    color:#334155;
+}
+input,select{
+    width:100%;
+    padding:12px 14px;
+    border:2px solid #e2e8f0;
+    border-radius:9px;
+    background:#f8fafc;
+    font-size:15px;
+    outline:none;
+}
+input:focus,select:focus{
+    border-color:#3b82f6;
+    background:white;
+}
+button{
+    width:100%;
+    padding:15px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#ef4444,#db2777);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(219,39,119,.3);
+}
+.result{
+    margin-top:25px;
+    padding:18px;
+    text-align:center;
+    border-radius:10px;
+    background:#ecfdf5;
+    border:2px solid #86efac;
+    color:#166534;
+    font-size:19px;
+    font-weight:bold;
+}
+.footer{
+    text-align:center;
+    margin-top:25px;
+    color:#64748b;
+    font-size:14px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="heart">❤️</div>
+
+<h1>Heart Disease Prediction</h1>
+
+<div class="subtitle">Enter the patient's medical information</div>
+
+<form method="POST">
+
+<div class="form-group">
+<label for="age">Age</label>
+<input type="number" name="age" id="age" placeholder="Example: 63" required>
+</div>
+
+<div class="form-group">
+<label for="sex">Sex</label>
+<select name="sex" id="sex" required>
+<option value="">Select Sex</option>
+<option value="0">Female (0)</option>
+<option value="1">Male (1)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="cp">Chest Pain Type (cp)</label>
+<select name="cp" id="cp" required>
+<option value="">Select Chest Pain Type</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="trestbps">Resting Blood Pressure (trestbps)</label>
+<input type="number" name="trestbps" id="trestbps" placeholder="Example: 145" required>
+</div>
+
+<div class="form-group">
+<label for="chol">Cholesterol (chol)</label>
+<input type="number" name="chol" id="chol" placeholder="Example: 233" required>
+</div>
+
+<div class="form-group">
+<label for="fbs">Fasting Blood Sugar (fbs)</label>
+<select name="fbs" id="fbs" required>
+<option value="">Select Fasting Blood Sugar</option>
+<option value="0">0</option>
+<option value="1">1</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="restecg">Resting ECG (restecg)</label>
+<select name="restecg" id="restecg" required>
+<option value="">Select Resting ECG</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="thalach">Maximum Heart Rate (thalach)</label>
+<input type="number" name="thalach" id="thalach" placeholder="Example: 150" required>
+</div>
+
+<div class="form-group">
+<label for="exang">Exercise Induced Angina (exang)</label>
+<select name="exang" id="exang" required>
+<option value="">Select Exercise Induced Angina</option>
+<option value="0">0</option>
+<option value="1">1</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="oldpeak">Oldpeak</label>
+<input type="number" step="any" name="oldpeak" id="oldpeak" placeholder="Example: 2.3" required>
+</div>
+
+<div class="form-group">
+<label for="slope">Slope</label>
+<select name="slope" id="slope" required>
+<option value="">Select Slope</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="ca">Number of Major Vessels (ca)</label>
+<select name="ca" id="ca" required>
+<option value="">Select Number of Major Vessels</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="thal">Thalassemia (thal)</label>
+<select name="thal" id="thal" required>
+<option value="">Select Thalassemia</option>
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+</div>
+
+<button type="submit">❤️ Predict Heart Disease</button>
+
+</form>
+
+<div class="result">
+Prediction: {{ prediction }}
+</div>
+
+<div class="footer">
+Heart Disease Prediction System
+<br><br>
+By Anuharika
+</div>
+
+</div>
+</body>
+</html>
